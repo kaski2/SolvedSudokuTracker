@@ -2,6 +2,7 @@ import SudokuObjects.*;
 
 public class Main {
     public static void main(String[] args) {
-        Sudoku asd = new Sudoku("000450070430100890006000100000080005000609000200000000004000200051002083060043000", 12, 12, 2002, true, "asd", Sudoku.Difficulty.DIABOLICAL);
+        Sudoku asd = new Sudoku("700893001006000003004506000008300070000040000040005200000907500300000900500432006", 12, 12, 2002, true, "asd", Sudoku.Difficulty.DIABOLICAL);
+        asd.printBoard();
     }
 }

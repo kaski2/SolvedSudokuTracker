@@ -93,6 +93,51 @@ public class Sudoku {
     public void setDiff(Difficulty diff) {
         this.diff = diff;
     }
+/*
+    ---------------------------------------
+    | 1 | 2 | 3 || 4 | 5 | 6 || 7 | 8 | 9 |
+    | 1 | 2 | 3 || 4 | 5 | 6 || 7 | 8 | 9 |
+    | 1 | 2 | 3 || 4 | 5 | 6 || 7 | 8 | 9 |
+    ---------------------------------------
+    | 1 | 2 | 3 || 4 | 5 | 6 || 7 | 8 | 9 |
+    | 1 | 2 | 3 || 4 | 5 | 6 || 7 | 8 | 9 |
+    | 1 | 2 | 3 || 4 | 5 | 6 || 7 | 8 | 9 |
+    ---------------------------------------
+    | 1 | 2 | 3 || 4 | 5 | 6 || 7 | 8 | 9 |
+    | 1 | 2 | 3 || 4 | 5 | 6 || 7 | 8 | 9 |
+    | 1 | 2 | 3 || 4 | 5 | 6 || 7 | 8 | 9 |
+    ---------------------------------------
+
+ */
+    public void printBoard(){
+        StringBuilder sb = new StringBuilder();
+        sb.append("---------------------------------------\n");
+        for (int i=0; i<9; i++){
+
+            sb.append("| ");
+            for (int j=i*9; j<(9*i)+9; j++){
+                //sb.append(" | ");
+                if(sudokuBoard[j] == 0){
+                    sb.append(" ");
+                }else {
+                    sb.append(sudokuBoard[j]);
+                }
+                if(j % 9 == 2 || j % 9 == 5){
+                    sb.append(" || ");
+                }else {
+                    sb.append(" | ");
+                }
+            }
+            sb.append("\n");
+            if(i == 2 || i == 5){
+                sb.append("---------------------------------------\n");
+            }
+
+        }
+        sb.append("---------------------------------------\n");
+
+        System.out.println(sb);
+    }
 
     private int[] makeSudokuBoard(String sudokuCode) throws InvalidSudokuCodeLength, InvalidSudokuCodeCharacters{
         int[] array = new int[81];
@@ -101,7 +146,6 @@ public class Sudoku {
         }
         for(int i=0; i<81; i++){
             int number = Character.getNumericValue(sudokuCode.charAt(i));
-            System.out.println(i+ " "+number);
             if(number > 9 || number < 0){
                 throw new InvalidSudokuCodeCharacters("Invalid characters in import string");
             }
